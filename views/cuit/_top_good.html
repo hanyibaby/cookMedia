@@ -1,0 +1,7 @@
+<% if (cuit.top) { %>
+<span class='put_top'>置顶</span>
+<% } else if (cuit.good) { %>
+<span class='put_good'>精华</span>
+<% } else if (typeof(cuitTab) !== 'undefined' &&  cuitTab === 'all' && cuit.cuitTabName) { %>
+<span class="cuitlist-cuitTab"><%=cuit.cuitTabName%></span>
+<% } %>

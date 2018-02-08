@@ -1,0 +1,21 @@
+<div class='cell'>
+
+  <span class="reply_count pull-right">
+    <span class="visit_font"> 点击数  </span>
+    <span class="count_seperator">/</span>
+    <span class="count_of_visits" title='点击数'>
+      <%= cuit.visit_count %>
+    </span>
+  </span>
+
+
+
+  <div class="cuit_title_wrapper">
+
+    <%- partial('./_top_good', {cuit: cuit}) %>
+
+    <a class='cuit_title' href='/cuit/<%= cuit._id %>' title='<%= cuit.title %>'>
+      <%= cuit.title %>
+    </a>
+  </div>
+</div>

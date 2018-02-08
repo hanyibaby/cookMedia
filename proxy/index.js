@@ -1,0 +1,11 @@
+exports.User         = require('./user');
+exports.Message      = require('./message');
+exports.Topic        = require('./topic');
+exports.News        = require('./news');
+exports.CUIT        = require('./cuit');
+exports.Example    = require('./example');
+exports.Reply        = require('./reply');
+exports.TopicCollect = require('./topic_collect');
+exports.NewsCollect = require('./news_collect');
+exports.CUITCollect = require('./cuit_collect');
+exports.ExampleCollect = require('./example_collect');

@@ -1,0 +1,21 @@
+<div class='cell'>
+
+  <span class="reply_count pull-right">
+    <span class="visit_font"> 点击数  </span>
+    <span class="count_seperator">/</span>
+    <span class="count_of_visits" title='点击数'>
+      <%= news.visit_count %>
+    </span>
+  </span>
+
+
+
+  <div class="news_title_wrapper">
+
+    <%- partial('./_top_good', {news: news}) %>
+
+    <a class='news_title' href='/news/<%= news._id %>' title='<%= news.title %>'>
+      <%= news.title %>
+    </a>
+  </div>
+</div>

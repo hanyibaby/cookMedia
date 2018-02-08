@@ -1,0 +1,27 @@
+<%- partial('sidebar') %>
+<div id="cuitContent">
+    <div class="cuitPanel">
+        <div class="header">
+            <% [['all', '全部'], ['good', '精华']].concat(cuitTabs).forEach(function (pair) {
+            var value = pair[0];
+            var text = pair[1]; %>
+            <a href="<%= value ? '?cuitTab=' + value : '/home/cuit' %>"
+               class="cuit-Tab <%= value === cuitTab ? 'current-cuitTab' : '' %>"><%= text %></a>
+            <% }) %>
+        </div>
+        <% if (typeof(cuits) !== 'undefined' && cuits.length > 0) { %>
+        <div class="inner no-padding">
+            <%- partial('cuit/list', {
+            cuits: cuits,
+            pages: pages,
+            current_page: current_page,
+            base: '/home/cuit'
+            }) %>
+        </div>
+        <% } else { %>
+        <div class="inner">
+            <p>此栏目还在建设中，预期2018年9月上线，敬请关注！</p>
+        </div>
+        <% } %>
+    </div>
+</div>

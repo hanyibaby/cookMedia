@@ -1,0 +1,7 @@
+<% if (example.top) { %>
+<span class='put_top'>置顶</span>
+<% } else if (example.good) { %>
+<span class='put_good'>精华</span>
+<% } else if (typeof(exampleTab) !== 'undefined' &&  exampleTab === 'all' && example.exampleTabName) { %>
+<span class="examplelist-exampleTab"><%=example.exampleTabName%></span>
+<% } %>

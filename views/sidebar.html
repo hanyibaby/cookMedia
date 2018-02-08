@@ -1,0 +1,110 @@
+<div id='sidebar'>
+
+  <div class='panel'>
+    <% if (typeof(user) !== 'undefined' || current_user) { %>
+    <div class='header'>
+      <span class='col_fade'>个人信息</span>
+    </div>
+    <div class='inner'>
+      <%- partial('user/card',{ object: typeof(user) === 'undefined' ? current_user : user, as: 'user' }) %>
+    </div>
+    <% } else { %>
+    <div class='inner'>
+      <p><%= config.description %></p>
+
+      <div>
+        您可以
+        <a href='/signin'>登录</a>
+        或
+        <a href='/signup'>注册</a>
+      </div>
+    </div>
+    <% } %>
+  </div>
+
+  <div class="panel">
+    <div class='inner'>
+      <% if (current_user&&current_user.is_admin) { %>
+      <a href='/news/create' id='create_news_btn'>
+        <span class='span-success'>发布新闻</span>
+      </a>
+      <a href='/cuit/create' id='create_cuit_btn'>
+        <span class='span-success'>发布主题</span>
+      </a>
+      <a href='/example/create' id='create_resource_btn'>
+        <span class='span-success'>发布资源</span>
+      </a>
+      <% } else { %>
+      <a href='/topic/create' id='create_topic_btn'>
+        <span class='span-success'>发布话题</span>
+      </a>
+      <% } %>
+    </div>
+  </div>
+
+
+
+
+  <% if (!current_user || !current_user.isAdvanced) { %>
+    <%- partial('./_ads') %>
+  <% } %>
+
+  <% if (typeof(no_reply_topics) !== 'undefined') { %>
+  <div class='panel'>
+    <div class='header'>
+      <span class='col_fade'>无人回复的话题</span>
+    </div>
+    <div class='inner'>
+      <% if (no_reply_topics.length > 0||no_reply_newss.length > 0) { %>
+      <ul class="unstyled">
+        <%- partial('topic/small', { collection: no_reply_topics, as: 'topic' }) %>
+      </ul>
+      <% } else { %>
+      <p>无</p>
+      <% } %>
+    </div>
+  </div>
+  <% } %>
+
+  <% if (typeof(tops) !== 'undefined') { %>
+  <div class='panel'>
+    <div class='header'>
+      <span class='col_fade'>积分榜</span>
+      &nbsp;
+      <a class='dark' href='/users/top100'>TOP 100 &gt;&gt;</a>
+    </div>
+    <div class='inner'>
+      <% if (tops.length > 0) { %>
+      <ol>
+        <%- partial('user/top', { collection: tops, as: 'user' }) %>
+      </ol>
+      <% } else { %>
+      <p>无</p>
+      <% } %>
+    </div>
+  </div>
+  <% } %>
+
+  <div class='panel'>
+    <div class='header'>
+      <span class='col_fade'>友情链接</span>
+    </div>
+    <div class='inner'>
+      <ol class="friendship-community">
+        <li>
+          <a href="http://jsjxy.cuit.edu.cn//" target="_blank">
+            <img src="<%- staticFile('/public/images/cuitLogo.png') %>">
+          </a>
+        </li>
+        <div class="sep10"></div>
+        <li>
+          <a href="http://http://www.phaser.io//" target="_blank">
+            <img src="<%- staticFile('/public/images/phaserLogo.png') %>">
+          </a>
+        </li>
+
+      </ol>
+    </div>
+  </div>
+
+</div>
